@@ -1,50 +1,25 @@
+import java.util.Objects;
+
 public class Match {
 
-    //1 user one, 0 user lost, 3 tie, 4 something went wrong.
+    //1 user one, 0 user lost, 3 tie.
     public int userWon(String choice, String computerChoice) {
-        int winner = 4;
-        switch (choice) {
-            case "rock":
-                switch (computerChoice){
-                    case "rock":
-                        winner =  3; //tie
-                        break;
-                    case "paper":
-                        winner =  0; //user lost
-                        break;
-                    case "scissors":
-                        winner = 1; //user won
-                        break;
-                }
-            break;
-            case "paper":
-                switch (computerChoice){
-                    case "rock":
-                        winner = 1; //user won
-                        break;
-                    case "paper":
-                        winner = 3; //tie
-                        break;
-                    case "scissors":
-                        winner = 0; //user lost
-                        break;
-                }
-            break;
-            case "scissors":
-                switch (computerChoice){
-                    case "rock":
-                        winner = 0; //user lost
-                        break;
-                    case "paper":
-                        winner = 1; //user won
-                        break;
-                    case "scissors":
-                        winner = 3; //tie
-                        break;
-                }
-            break;
+
+        //handelling tie
+        if (choice.equals(computerChoice))
+            return 3;
+
+        //handelling user winning
+        if (choice.equals("rock") && computerChoice.equals("scissors") ||
+            choice.equals("paper") && computerChoice.equals("rock") ||
+            choice.equals("scissors") && computerChoice.equals("paper")) {
+
+            return 1;
         }
-        return winner;
+
+        //handelling user losing
+        return 0;
+
     }
 
 
