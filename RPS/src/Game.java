@@ -3,7 +3,7 @@ public class Game {
 
     private final Player player;
     private final Computer computer;
-    private Match match;
+    private final Match match;
 
     public Game(){
         player = new Player();
@@ -12,6 +12,9 @@ public class Game {
     }
 
     public void start(){
-        while (true) match.play(player, computer);
+        while (true) {
+            match.play(player, computer);
+            numOfMatches++;
+        }
     }
 }

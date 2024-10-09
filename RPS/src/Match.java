@@ -1,3 +1,4 @@
+import javax.xml.crypto.dsig.XMLObject;
 import java.util.Scanner;
 
 public class Match {
@@ -18,26 +19,28 @@ public class Match {
         player.setChoice(input);
     }
 
-    public void detWinner(String choice, String computerChoice) { //1 user one, 0 user lost, 3 tie.
+    public void detWinner(Player player, Computer computer) { //1 user one, 0 user lost, 3 tie.
 
         //handling tie
-        if (choice.equals(computerChoice)) {
+        if (player.getChoice().equals(computer.getChoice())) {
             System.out.println("It's a Tie!");
             return;
         }
 
 
         //handling user winning
-        if (choice.equals("rock") && computerChoice.equals("scissors") ||
-            choice.equals("paper") && computerChoice.equals("rock") ||
-            choice.equals("scissors") && computerChoice.equals("paper")) {
+        if (player.getChoice().equals("rock") && computer.getChoice().equals("scissors") ||
+            player.getChoice().equals("paper") && computer.getChoice().equals("rock") ||
+            player.getChoice().equals("scissors") && computer.getChoice().equals("paper")) {
 
-            System.out.println("You Won! Computer chose "+computerChoice+".");
+            player.encScore();
+            System.out.println("You Won! Computer chose "+computer.getChoice()+".");
             return;
         }
 
         //handling user losing
-        System.out.println("You lost :( Computer chose "+computerChoice+".");
+        computer.encScore();
+        System.out.println("You lost :( Computer chose "+computer.getChoice()+".");
     }
 
 
@@ -45,6 +48,6 @@ public class Match {
         getUserInput(player);
         computer.makeChoice();
 
-        detWinner(player.getChoice(), computer.getChoice());
+        detWinner(player, computer);
     }
 }

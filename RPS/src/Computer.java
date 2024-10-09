@@ -2,6 +2,12 @@ import java.util.Random;
 
 public class Computer {
     private String choice;
+    private int score;
+
+    public Computer() {
+        score = 0;
+    }
+
 
     public void makeChoice() {
         Random rand = new Random();
@@ -23,5 +29,13 @@ public class Computer {
 
     public String getChoice() {
         return choice;
+    }
+
+    public void encScore() {
+        score++;
+    }
+
+    public int getScore() {
+        return score;
     }
 }
