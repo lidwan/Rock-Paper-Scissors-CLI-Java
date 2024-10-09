@@ -2,15 +2,13 @@ import java.util.Scanner;
 
 public class Match {
     private final Scanner scanner;
-    private final Player player;
-    private final Computer computer;
+
 
     public Match() {
         scanner = new Scanner(System.in);
-        player = new Player();
-        computer = new Computer();
+
     }
-    public void getUserInput() {
+    public void getUserInput(Player player) {
         String input;
         do {
             System.out.println("Please Enter in your choice (rock, paper or scissors): ");
@@ -43,8 +41,8 @@ public class Match {
     }
 
 
-    public void play() {
-        getUserInput();
+    public void play(Player player, Computer computer) {
+        getUserInput(player);
         computer.makeChoice();
 
         detWinner(player.getChoice(), computer.getChoice());

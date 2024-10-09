@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Match match = new Match();
+        Game game = new Game();
 
-        match.play();
+        game.start();
     }
 }
