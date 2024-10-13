@@ -8,6 +8,13 @@ public class GameInterface {
         scanner = new Scanner(System.in);
     }
 
+
+    public void welcomeMessage() {
+        System.out.println("Welcome to Rock, Paper Scissors!");
+        System.out.println("You will play unlimited matches against the computer which plays randomly");
+        System.out.println("First to win 3 matches wins the game.");
+        System.out.println("Let's begin!");
+    }
     public void getUserInput(Player player) {
         String input;
         do {

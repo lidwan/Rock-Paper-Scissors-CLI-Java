@@ -3,6 +3,7 @@ public class Main {
 
         GameInterface gameInterface = new GameInterface();
 
+        gameInterface.welcomeMessage();
         do {
             Game game = new Game();
 
