@@ -22,6 +22,17 @@ public class GameInterface {
         System.out.println(message);
     }
 
+    public boolean playAgain() {
+        String input;
+
+        do {
+            System.out.println("Do you want to play again? (yes / no)");
+            input = scanner.next().trim().toLowerCase();
+        } while (!input.equals("yes") && !input.equals("no"));
+
+        return input.equals("yes");
+    }
+
 
 
 

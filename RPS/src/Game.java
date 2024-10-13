@@ -11,8 +11,13 @@ public class Game {
         match = new Match();
     }
 
+    public boolean playMatch(){
+
+        return player.getScore() < 3 && computer.getScore() < 3;
+    }
+
     public void start(){
-        while (true) {
+        while (playMatch()) {
             match.play(player, computer);
             numOfMatches++;
         }
