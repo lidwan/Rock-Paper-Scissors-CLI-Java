@@ -16,10 +16,11 @@ public class Game {
         return player.getScore() < 3 && computer.getScore() < 3;
     }
 
-    public void start(){
+    public void start(GameInterface gameInterface){
         while (playMatch()) {
-            match.play(player, computer);
+            match.play(player, computer, gameInterface);
             numOfMatches++;
         }
+        gameInterface.gameOverStats(player, computer, numOfMatches);
     }
 }

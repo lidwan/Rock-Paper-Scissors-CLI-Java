@@ -2,14 +2,10 @@ import javax.xml.crypto.dsig.XMLObject;
 import java.util.Scanner;
 
 public class Match {
-    private final Scanner scanner;
-    private GameInterface gameInterface;
 
 
     public Match() {
-        scanner = new Scanner(System.in);
-        gameInterface = new GameInterface();
-
+        Scanner scanner = new Scanner(System.in);
     }
 
 
@@ -39,7 +35,7 @@ public class Match {
     }
 
 
-    public void play(Player player, Computer computer) {
+    public void play(Player player, Computer computer,GameInterface gameInterface) {
         gameInterface.getUserInput(player);
 
         computer.makeChoice();

@@ -33,6 +33,19 @@ public class GameInterface {
         return input.equals("yes");
     }
 
+    public String detGameWinner(Player player, Computer computer) {
+        if (player.getScore() > computer.getScore())
+            return "You are an overall winner!";
+        return "You lost to the computer, better luck next time.";
+    }
+
+    public void gameOverStats(Player player, Computer computer, int numOfMatches){
+        System.out.println("You Played a total of "+numOfMatches+"!");
+        System.out.println("You won "+player.getScore()+" matches");
+        System.out.println("The computer won "+computer.getScore()+" matches");
+        System.out.println(detGameWinner(player, computer));
+    }
+
 
 
 

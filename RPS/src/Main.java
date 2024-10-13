@@ -5,7 +5,10 @@ public class Main {
 
         do {
             Game game = new Game();
-            game.start();
+
+            game.start(gameInterface);
         }while (gameInterface.playAgain());
+
+
     }
 }
