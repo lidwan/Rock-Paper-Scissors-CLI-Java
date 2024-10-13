@@ -10,6 +10,7 @@ public class GameInterface {
 
 
     public void welcomeMessage() {
+        System.out.println();
         System.out.println("Welcome to Rock, Paper Scissors!");
         System.out.println("You will play unlimited matches against the computer which plays randomly");
         System.out.println("First to win 3 matches wins the game.");
@@ -18,7 +19,8 @@ public class GameInterface {
     public void getUserInput(Player player) {
         String input;
         do {
-            System.out.println("Please Enter in your choice (rock, paper or scissors): ");
+            System.out.println();
+            System.out.print("Please Enter in your choice (rock, paper or scissors): ");
             input = scanner.next().trim().toLowerCase();
         } while (!input.equals("rock") && !input.equals("paper") && !input.equals("scissors"));
 
@@ -33,6 +35,7 @@ public class GameInterface {
         String input;
 
         do {
+            System.out.println();
             System.out.println("Do you want to play again? (yes / no)");
             input = scanner.next().trim().toLowerCase();
         } while (!input.equals("yes") && !input.equals("no"));
@@ -47,6 +50,7 @@ public class GameInterface {
     }
 
     public void gameOverStats(Player player, Computer computer, int numOfMatches){
+        System.out.println();
         System.out.println("You Played a total of "+numOfMatches+"!");
         System.out.println("You won "+player.getScore()+" matches");
         System.out.println("The computer won "+computer.getScore()+" matches");
