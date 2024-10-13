@@ -52,6 +52,7 @@ public class GameInterface {
     public void gameOverStats(Player player, Computer computer, int numOfMatches){
         System.out.println();
         System.out.println("You Played a total of "+numOfMatches+"!");
+        System.out.println(numOfMatches - (player.getScore() + computer.getScore())+" tie");
         System.out.println("You won "+player.getScore()+" matches");
         System.out.println("The computer won "+computer.getScore()+" matches");
         System.out.println(detGameWinner(player, computer));
