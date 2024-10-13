@@ -3,28 +3,22 @@ import java.util.Scanner;
 
 public class Match {
     private final Scanner scanner;
+    private GameInterface gameInterface;
 
 
     public Match() {
         scanner = new Scanner(System.in);
+        gameInterface = new GameInterface();
 
     }
-    public void getUserInput(Player player) {
-        String input;
-        do {
-            System.out.println("Please Enter in your choice (rock, paper or scissors): ");
-            input = scanner.next().trim().toLowerCase();
-        } while (!input.equals("rock") && !input.equals("paper") && !input.equals("scissors"));
 
-        player.setChoice(input);
-    }
 
-    public void detWinner(Player player, Computer computer) { //1 user one, 0 user lost, 3 tie.
+    public String detWinner(Player player, Computer computer) { //1 user one, 0 user lost, 3 tie.
 
         //handling tie
         if (player.getChoice().equals(computer.getChoice())) {
-            System.out.println("It's a Tie!");
-            return;
+
+            return "It's a Tie!";
         }
 
 
@@ -34,20 +28,22 @@ public class Match {
             player.getChoice().equals("scissors") && computer.getChoice().equals("paper")) {
 
             player.encScore();
-            System.out.println("You Won! Computer chose "+computer.getChoice()+".");
-            return;
+
+            return "You Won! Computer chose "+computer.getChoice()+".";
         }
 
         //handling user losing
         computer.encScore();
-        System.out.println("You lost :( Computer chose "+computer.getChoice()+".");
+
+        return "You lost :( Computer chose "+computer.getChoice()+".";
     }
 
 
     public void play(Player player, Computer computer) {
-        getUserInput(player);
+        gameInterface.getUserInput(player);
+
         computer.makeChoice();
 
-        detWinner(player, computer);
+        gameInterface.announceWinner(detWinner(player, computer));
     }
 }
